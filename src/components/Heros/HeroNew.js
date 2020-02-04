@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import Auth from '../lib/auth'
+import Auth from '../lib/Auth'
 import HeroForm from './HeroForm'
 
 class HeroNew extends React.Component {
