@@ -6,13 +6,13 @@ import './styles/main.scss'
 import 'bulma'
 
 import Home from './components/common/Home'
-import Heros from './components/heros/HeroIndex'
-import HerosShow from './components/heros/HeroShow'
+import Heros from './components/heros-comp/HeroIndex'
+import HerosShow from './components/heros-comp/HeroShow'
 import Navbar from './components/common/Navbar'
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
-import HerosNew from './components/heros/HeroNew'
-import HeroEdit from './components/heros/HeroEdit'
+import HerosNew from './components/heros-comp/HeroNew'
+import HeroEdit from './components/heros-comp/HeroEdit'
 
 class App extends React.Component {
   render() {
