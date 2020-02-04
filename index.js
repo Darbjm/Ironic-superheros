@@ -11,10 +11,14 @@ mongoose.connect(database, { useNewUrlParser: true , useUnifiedTopology: true },
   console.log('Mongo is connected')
 })
 
+app.use(express.static(`${__dirname}/dist`))
+
 app.use(bodyParser.json())
 
 app.use(logger)
 
 app.use('/api', router) // puts api infront to separate the front and back end
+
+app.use('/*', (req, res) => res.sendFile(`${__dirname}/dist/index.html`))
 
 app.listen(port, () => console.log(`Express is up and running on ${port}`))
