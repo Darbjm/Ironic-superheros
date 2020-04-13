@@ -5,8 +5,10 @@ const { secret } = require('../config/environment')
 function register(req, res) {
   User
     .create(req.body) // register using the mongoose format i created in models/user
-    .then(user => res.status(201).json({ 'message': `Thanks for registering ${user.username}` }))
-    .catch(err => res.json(err))
+    .then(user => {
+      res.status(201).json({ 'message': `Thanks for registering ${user.username}` })
+    })
+    .catch(err => res.status(422).json(err))
 }
 
 function login(req, res) {
@@ -22,7 +24,16 @@ function login(req, res) {
         token
       })
     })
-    .catch(err => res.json(err))
+    .catch(err => res.status(422).json(err))
 }
 
-module.exports = { register, login }
+function profile(req, res) {
+  User
+    .findById(req.currentUser._id)
+    .populate('createdHeros')
+    .then(user => res.status(200).json(user))
+    .catch(err => res.status(404).json(err))
+}
+
+
+module.exports = { register, login, profile }

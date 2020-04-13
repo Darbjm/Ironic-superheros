@@ -7,6 +7,11 @@ const commentSchema = new mongoose.Schema({
   timestamps: true
 })
 
+const likeSchema = new mongoose.Schema({
+  user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
+}, {
+  timestamps: true
+})
 
 const heroSchema = new mongoose.Schema({
   name: { type: String, required: true, unique: true },
@@ -14,10 +19,22 @@ const heroSchema = new mongoose.Schema({
   evil: { type: String, required: true },
   irony: { type: Number, required: true, min: 1, max: 10 },
   image: { type: String, required: true },
-  comments: [commentSchema], // adding our commentSchema as an embedded array in the animal model, our comments will be ojects following the schema seen above // another required string, but this one has a max length
-  user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true } // our referenced to the USER model, attaching a user field and defining that it will be a user model.
+  comments: [ commentSchema ], // adding our commentSchema as an embedded array in the animal model, our comments will be ojects following the schema seen above // another required string, but this one has a max length
+  user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }, // our referenced to the USER model, attaching a user field and defining that it will be a user model.
+  likes: [ likeSchema ]
 }, {
   timestamps: true
 })
+
+heroSchema
+  .virtual('likeCount')
+  .get(function() {
+    return this.likes.length
+  })
+
+heroSchema.set('toJSON', { virtuals: true })
+
+
+heroSchema.plugin(require('mongoose-unique-validator'))
 
 module.exports = mongoose.model('Hero', heroSchema)

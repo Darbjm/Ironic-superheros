@@ -18,19 +18,26 @@ class HerosShow extends React.Component {
   handleDelete = async () => {
     const heroId = this.props.match.params.id
     try {
-      await axios.delete(`api/heros/${heroId}`, {
+      await axios.delete(`/api/heros/${heroId}`, {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
-      this.props.history.push('api/heros')
+      this.props.history.push('/heros')
     } catch (err) {
       console.log(err.response)
     }
   }
+  // addLike = async () => {
+  //   const heroId = this.props.match.params.id
+  //   try {
+  //     await axios.put()
+  //   }
+  // }
+
+  isLoggedin = () => Auth.getPayload().sub
+ 
+  isOwner = () => Auth.getPayload().sub === this.state.hero.user
   
-  isOwner = () => Auth.getPayload().sub === this.state.hero.user._id
   render() {
-    console.log(this.state)
-    console.log(Auth.getPayload().sub)
     const { hero } = this.state
     if (!hero) return null
     return (
@@ -42,6 +49,21 @@ class HerosShow extends React.Component {
             <div className="column is-half">
               <figure className="image">
                 <img src={hero.image} alt={hero.name} />
+                <hr />
+                {this.isLoggedin() && 
+                <>
+                <button className="button is-warning" onClick={this.addLike}>Like</button>
+                <button className="button is-warning">Comment</button>
+                </>
+                }
+                <hr />
+                <h4 className="title is-4">Likes</h4>
+                <hr />
+                {/* <p>{hero.likes.length}</p> // use axios to get for likes */}
+                <hr />
+                <h4 className="title is-4">Comments</h4>
+                <hr />
+                <p>{hero.comments}</p>
               </figure>
             </div>
             <div className="column is-half">

@@ -16,6 +16,26 @@ userSchema.set('toJSON', { // this is what prevents the pasword being sent when 
   }
 })
 
+userSchema.virtual('createdHeros', {
+  ref: 'Hero',
+  localField: '_id',
+  foreignField: 'user'
+})
+
+userSchema.virtual('likedHeros', {
+  ref: 'Hero',
+  localField: '_id',
+  foreignField: 'likes.user'
+})
+
+userSchema
+  .set('toJSON', {
+    virtuals: true,
+    transform(doc, json) {
+      delete json.password
+      return json
+    }
+  })
 
 userSchema.methods.validatePassword = function validatePassword(password) {
   return bcrypt.compareSync(password, this.password) //this.password refers to the password in the userSchema object

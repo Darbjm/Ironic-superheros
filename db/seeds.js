@@ -18,7 +18,7 @@ mongoose.connect(database, { useNewUrlParser: true, useUnifiedTopology: true }, 
       ])
     })
     .then(createdUsers => { // our createdUsers become our argument to this block, we can reference them as createdUser[0] and createdUser[1]
-      console.log(`${'👩🏼‍🎨'.repeat(createdUsers.length)} users created`) // this now logs succesfully creating the users before the dinosaurs now
+      console.log(`${'👩🏼‍🎨'.repeat(createdUsers.length)} users created`) // this now logs succesfully creating the users before the heros now
       return Hero.create([
         {
           name: 'anit-grav',

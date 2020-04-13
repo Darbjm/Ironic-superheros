@@ -16,7 +16,7 @@ class HeroEdit extends React.Component {
   async componentDidMount() {
     const heroId = this.props.match.params.id
     try {
-      const res = await axios.get(`api/heros/${heroId}`)
+      const res = await axios.get(`/api/heros/${heroId}`)
       this.setState({ data: res.data })
     } catch (err) {
       console.log(err)
@@ -30,7 +30,8 @@ class HeroEdit extends React.Component {
     e.preventDefault()
     const heroId = this.props.match.params.id
     try {
-      const { data } = await axios.put(`api/heros/${heroId}`, this.state.data, {
+      console.log(this.state.data)
+      const { data } = await axios.put(`/api/heros/${heroId}`, this.state.data, {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
       this.props.history.push(`/heros/${data._id}`)

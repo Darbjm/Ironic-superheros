@@ -22,3 +22,5 @@ app.use('/api', router) // puts api infront to separate the front and back end
 app.use('/*', (req, res) => res.sendFile(`${__dirname}/dist/index.html`))
 
 app.listen(port, () => console.log(`Express is up and running on ${port}`))
+
+module.exports = app

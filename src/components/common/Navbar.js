@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import Auth from '../lib/Auth'
-// import { notify } from 'react-notify-toast'
+import notification from '../lib/notification'
 
 class Navbar extends React.Component {
   state = { navbarOpen: false }
@@ -10,7 +10,7 @@ class Navbar extends React.Component {
   }
   handleLogout = () => {
     Auth.logout()
-    // notify.show('Come back soon', 'success', 3000)
+    notification('Come back soon', 'success', 3000)
     this.props.history.push('/')
   }
   componentDidUpdate(prevProps) {

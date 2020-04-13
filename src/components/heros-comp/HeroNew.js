@@ -10,7 +10,8 @@ class HeroNew extends React.Component {
       power: '',
       evil: '',
       irony: '',
-      image: ''
+      image: '',
+      user: ''
     }
   }
   handleChange = ({ target: { name, value } }) => {
