@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import Auth from '../lib/Auth'
-import notification from '../lib/notification'
+import notification from '../lib/Notification'
 
 class Navbar extends React.Component {
   state = { navbarOpen: false }

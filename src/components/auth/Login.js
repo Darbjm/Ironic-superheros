@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import Auth from '../lib/Auth'
-import notification from '../lib/notification'
+import notification from '../lib/Notification'
 
 class Login extends React.Component {
  state = {

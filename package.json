@@ -1,8 +1,11 @@
 {
-  "name": "jurassic-park-api",
+  "name": "irony",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "engines": {
+    "node": "13.2.x"
+  },
   "scripts": {
     "start:back": "nodemon",
     "start:front": "webpack-dev-server --mode-development",
