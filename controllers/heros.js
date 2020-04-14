@@ -48,7 +48,7 @@ function commentCreate(req, res, next) { // comment create - /heros/:id/comments
   Hero
     .findById(req.params.id) // first find the hero by its id
     .then(hero => {
-      if (!hero) return res.status(404).json({ message: 'Not Found' }) // return res 404 iuf not found
+      if (!hero) return res.status(404).json({ message: 'Not Found' }) // return res 404 if not found
       hero.comments.push(req.body) // otherwise push the new comment into the heros comment array
       return hero.save() //  then resave the hero with the new comment
     })
@@ -56,7 +56,7 @@ function commentCreate(req, res, next) { // comment create - /heros/:id/comments
     .catch(next) // send any errors
 }
 
-function commentDelete(req, res) { // comment delete - /aniamls/:id/comments/:commentId
+function commentDelete(req, res) { // comment delete - /heros/:id/comments/:commentId
   Hero
     .findById(req.params.id) // find the hero with the comment to be deleted
     .then(hero => {
@@ -69,7 +69,6 @@ function commentDelete(req, res) { // comment delete - /aniamls/:id/comments/:co
     )
     .catch(err => res.status(401).json(err)) //send any errors
 }
-// * GET /dinosaurs/:id/like
 function like(req, res) {
   Hero
     .findById(req.params.id)

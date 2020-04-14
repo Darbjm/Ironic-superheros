@@ -12,8 +12,8 @@ mongoose.connect(database, { useNewUrlParser: true, useUnifiedTopology: true }, 
         {
           username: 'james',
           email: 'james@email',
-          password: 'pass',
-          passwordConfirmation: 'pass'
+          password: 'IronicHeros19',
+          passwordConfirmation: 'IronicHeros19'
         }
       ])
     })

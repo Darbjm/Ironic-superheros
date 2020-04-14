@@ -26,12 +26,6 @@ class HerosShow extends React.Component {
       console.log(err.response)
     }
   }
-  // addLike = async () => {
-  //   const heroId = this.props.match.params.id
-  //   try {
-  //     await axios.put()
-  //   }
-  // }
 
   isLoggedin = () => Auth.getPayload().sub
  
@@ -41,48 +35,34 @@ class HerosShow extends React.Component {
     const { hero } = this.state
     if (!hero) return null
     return (
-      <section className="section">
-        <div className="container">
-          <h2 className="title">{hero.name}</h2>
+      <section className='section'>
+        <div className='container'>
+          <h2 className='title'>{hero.name}</h2>
           <hr />
-          <div className="columns">
-            <div className="column is-half">
-              <figure className="image">
+          <div className='columns'>
+            <div className='column is-half'>
+              <figure className='image'>
                 <img src={hero.image} alt={hero.name} />
                 <hr />
-                {this.isLoggedin() && 
-                <>
-                <button className="button is-warning" onClick={this.addLike}>Like</button>
-                <button className="button is-warning">Comment</button>
-                </>
-                }
-                <hr />
-                <h4 className="title is-4">Likes</h4>
-                <hr />
-                {/* <p>{hero.likes.length}</p> // use axios to get for likes */}
-                <hr />
-                <h4 className="title is-4">Comments</h4>
-                <hr />
-                <p>{hero.comments}</p>
               </figure>
             </div>
-            <div className="column is-half">
-              <h4 className="title is-4">Power</h4>
+            <div className='column is-half'>
+              <h4 className='title is-4'>Power</h4>
               <p>{hero.power}</p>
               <hr />
-              <h4 className="title is-4">Side</h4>
+              <h4 className='title is-4'>Side</h4>
               <hr />
               <p>{hero.evil}</p>
               <hr />
-              <h4 className="title is-4">Irony level</h4>
+              <h4 className='title is-4'>Irony level</h4>
               <hr />
               <p>{hero.irony}</p>
               <hr />
               {this.isOwner() && 
                 <>
-                 <Link to={`/heros/${hero._id}/edit`} className="button is-warning">Edit Hero</Link>
+                 <Link to={`/heros/${hero._id}/edit`} className='button is-warning'>Edit Hero</Link>
                   <hr />
-                  <button onClick={this.handleDelete} className="button is-danger">Delete Hero ☠️</button>
+                  <button onClick={this.handleDelete} className='button is-danger'>Delete Hero ☠️</button>
                 </>
               }
             </div>

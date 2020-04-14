@@ -19,7 +19,7 @@ const heroSchema = new mongoose.Schema({
   evil: { type: String, required: true },
   irony: { type: Number, required: true, min: 1, max: 10 },
   image: { type: String, required: true },
-  comments: [ commentSchema ], // adding our commentSchema as an embedded array in the animal model, our comments will be ojects following the schema seen above // another required string, but this one has a max length
+  comments: [ commentSchema ], // adding our commentSchema as an embedded array in the hero model, our comments will be ojects following the schema seen above // another required string, but this one has a max length
   user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }, // our referenced to the USER model, attaching a user field and defining that it will be a user model.
   likes: [ likeSchema ]
 }, {

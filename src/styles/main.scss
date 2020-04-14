@@ -5,6 +5,11 @@
   min-height: 100vh;
 }
 
+.hometitle {
+  background-color: #32322f;
+  padding: 10px;
+}
+
 .card {
   background-color: #333330;
   height: 100%;
@@ -13,4 +18,10 @@
 }
 .card-content {
     margin-top: auto;
+}
+
+
+.navbar-item img {
+  max-height: 80px !important;
+  width: 120px;
 }

@@ -15,9 +15,9 @@ class HeroIndex extends React.Component {
   }
   render() {
     return (
-      <section className="section">
-        <div className="container">
-          <div className="columns is-mobile is-multiline">
+      <section className='section'>
+        <div className='container'>
+          <div className='columns is-mobile is-multiline'>
             {this.state.heros.map(hero =>( 
               <HeroCard key={hero._id} {...hero}/>
             ))}

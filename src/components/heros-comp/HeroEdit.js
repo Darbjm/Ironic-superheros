@@ -41,8 +41,8 @@ class HeroEdit extends React.Component {
   }
   render() {
     return (
-      <section className="section">
-        <div className="container">
+      <section className='section'>
+        <div className='container'>
           <HeroForm
             data={this.state.data}
             handleChange={this.handleChange}

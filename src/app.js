@@ -24,14 +24,14 @@ class App extends React.Component {
           <Notification /> 
           <Navbar />
           <Switch>
-            <Route exact path="/" component={Home} />
-            <SecureRoute path="/heros/:id/edit" component={HeroEdit} />
-            <SecureRoute path="/heros/new" component={HerosNew} />
-            <Route path="/heros/:id" component={HerosShow} />
-            <Route path="/heros" component={Heros} />
-            <Route path="/register" component={Register} />
-            <Route path="/login" component={Login} />
-            <Route path="/*" component={ErrorPage} />
+            <Route exact path='/' component={Home} />
+            <SecureRoute path='/heros/:id/edit' component={HeroEdit} />
+            <SecureRoute path='/heros/new' component={HerosNew} />
+            <Route path='/heros/:id' component={HerosShow} />
+            <Route path='/heros' component={Heros} />
+            <Route path='/register' component={Register} />
+            <Route path='/login' component={Login} />
+            <Route path='/*' component={ErrorPage} />
           </Switch>
         </main>
       </BrowserRouter>
